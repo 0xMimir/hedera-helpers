@@ -1,0 +1,27 @@
+{
+  "name": "hedera-helpers",
+  "version": "1.0.0",
+  "description": "Helpers for hedera",
+  "main": "index.js",
+  "scripts": {
+    "generate_ecdsa": "npx tsc;node dist/generate_ecdsa.js",
+    "build": "npx tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/0xMimir/hedera-helpers.git"
+  },
+  "author": "0xMimir",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/0xMimir/hedera-helpers/issues"
+  },
+  "homepage": "https://github.com/0xMimir/hedera-helpers#readme",
+  "dependencies": {
+    "@hashgraph/sdk": "^2.32.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}
