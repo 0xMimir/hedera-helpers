@@ -5,11 +5,14 @@ const privateKey = PrivateKey.fromString(process.env.DER_ENCODED_PRIVATE_KEY)
 const client = ((process.env.NETWORK === "mainnet") ? Client.forMainnet() : Client.forTestnet());
 client.setOperator(process.env.ACCOUNT_ID, privateKey);
 
-async function generateEsdsaAccount(client: Client){
+
+// Generate ECDSA account for interacting with smart contracts on hedera
+async function generateEcdsaAccount(client: Client){
     const newKey = PrivateKey.generateECDSA();
     console.log(`Private DER key: ${newKey}`);
     
     let accountTx = await new AccountCreateTransaction()
+        .setAlias(newKey.publicKey.toEvmAddress())
         .setKey(newKey)
         .execute(client);
 
@@ -23,4 +26,4 @@ async function generateEsdsaAccount(client: Client){
 }
 
 
-generateEsdsaAccount(client);
+generateEcdsaAccount(client);
